@@ -1,0 +1,37 @@
+!
+hostname BranchRouter
+!
+interface GigabitEthernet0/0
+ description Connection to ISP
+ ip address 198.51.100.2 255.255.255.252
+ ip nat outside
+ no shutdown
+!
+interface GigabitEthernet0/1
+ description LAN
+ ip address 192.168.10.1 255.255.255.0
+ ip nat inside
+ no shutdown
+!
+interface GigabitEthernet0/2
+ description Wireless Subnet
+ ip address 192.168.20.1 255.255.255.0
+ ip nat inside
+ no shutdown
+!
+! Configure DHCP for wired LAN
+ip dhcp pool LAN
+ network 192.168.10.0 255.255.255.0
+ default-router 192.168.10.1
+ dns-server 8.8.8.8
+ lease 7
+!
+! Configure NAT overload for internet access
+access-list 1 permit 192.168.10.0 0.0.0.255
+access-list 1 permit 192.168.20.0 0.0.0.255
+ip nat inside source list 1 interface GigabitEthernet0/0 overload
+!
+! Default route to upstream ISP
+ip route 0.0.0.0 0.0.0.0 198.51.100.1
+!
+end
