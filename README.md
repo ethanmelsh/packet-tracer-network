@@ -1,6 +1,6 @@
 # Small Office Network using Cisco Packet Tracer
 
-This repository contains a simple **small office network** designed for the Cisco Networking Academy Packet Tracer curriculum.  It follows the structure of the **"Exploring Networking with Cisco Packet Tracer"** course: you will build and test a branch-office network that mixes wired and wireless devices, learn how to verify connectivity and observe packet flows, and experiment with network management concepts.
+A simple **small office network** designed for the Cisco Networking Academy Packet Tracer curriculum.  It follows the structure of the **"Exploring Networking with Cisco Packet Tracer"** course: you will build and test a branch-office network that mixes wired and wireless devices, learn how to verify connectivity and observe packet flows, and experiment with network management concepts.
 
 ## Overview
 
